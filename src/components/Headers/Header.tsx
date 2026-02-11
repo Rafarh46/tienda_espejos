@@ -55,6 +55,7 @@ const Header = () => {
       if (!headerRef.current) return;
       if (!headerRef.current.contains(event.target as Node)) {
         setMenuOpen(false);
+        setCategoriesOpen(false);
       }
     };
 
@@ -113,7 +114,7 @@ const Header = () => {
               <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}>
                 <ul className="navbar-nav mx-auto align-items-lg-center">
                   <li className="nav-item">
-                    <Link className="nav-link" href="/">
+                    <Link className="nav-link" href="/" onClick={() => setCategoriesOpen(false)}>
                       Inicio
                     </Link>
                   </li>
@@ -139,19 +140,6 @@ const Header = () => {
                             className="dropdown-item"
                             onClick={() => setCategoriesOpen(false)}
                           >
-                  <li className="nav-item dropdown">
-                    <button
-                      className="nav-link dropdown-toggle btn btn-link text-decoration-none"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Categorías
-                    </button>
-                    <ul className="dropdown-menu">
-                      {PRODUCT_CATEGORIES.map((category) => (
-                        <li key={category}>
-                          <Link href={`/shop?category=${encodeURIComponent(category)}`} className="dropdown-item">
                             {category}
                           </Link>
                         </li>
@@ -160,13 +148,13 @@ const Header = () => {
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" href="/shop">
+                    <Link className="nav-link" href="/shop" onClick={() => setCategoriesOpen(false)}>
                       Promociones
                     </Link>
                   </li>
 
                   <li className="nav-item">
-                    <Link className="nav-link" href="/contact-us">
+                    <Link className="nav-link" href="/contact-us" onClick={() => setCategoriesOpen(false)}>
                       Contacto
                     </Link>
                   </li>
