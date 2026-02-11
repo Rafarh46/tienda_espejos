@@ -139,6 +139,19 @@ const Header = () => {
                             className="dropdown-item"
                             onClick={() => setCategoriesOpen(false)}
                           >
+                  <li className="nav-item dropdown">
+                    <button
+                      className="nav-link dropdown-toggle btn btn-link text-decoration-none"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Categorías
+                    </button>
+                    <ul className="dropdown-menu">
+                      {PRODUCT_CATEGORIES.map((category) => (
+                        <li key={category}>
+                          <Link href={`/shop?category=${encodeURIComponent(category)}`} className="dropdown-item">
                             {category}
                           </Link>
                         </li>
