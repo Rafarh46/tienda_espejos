@@ -182,6 +182,8 @@ const FilterTab = () => {
 
     const [display, setDisplay] = useState<any | number>(3)
 
+    const products = ProductData;
+
     const handleClick = (id: any) => {
         if (open === id) {
             setDisplay(null)
