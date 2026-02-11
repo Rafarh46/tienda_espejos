@@ -33,6 +33,7 @@ const Header = () => {
   const [isStickyActive, setIsStickyActive] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -117,6 +118,27 @@ const Header = () => {
                     </Link>
                   </li>
 
+                  <li
+                    className={`nav-item dropdown ${categoriesOpen ? "show" : ""}`}
+                    onMouseEnter={() => setCategoriesOpen(true)}
+                    onMouseLeave={() => setCategoriesOpen(false)}
+                  >
+                    <button
+                      className="nav-link dropdown-toggle btn btn-link text-decoration-none"
+                      type="button"
+                      aria-expanded={categoriesOpen}
+                      onClick={() => setCategoriesOpen((prev) => !prev)}
+                    >
+                      Categorías
+                    </button>
+                    <ul className={`dropdown-menu ${categoriesOpen ? "show" : ""}`}>
+                      {PRODUCT_CATEGORIES.map((category) => (
+                        <li key={category}>
+                          <Link
+                            href={`/shop?category=${encodeURIComponent(category)}`}
+                            className="dropdown-item"
+                            onClick={() => setCategoriesOpen(false)}
+                          >
                   <li className="nav-item dropdown">
                     <button
                       className="nav-link dropdown-toggle btn btn-link text-decoration-none"
