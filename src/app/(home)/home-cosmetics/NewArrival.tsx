@@ -165,9 +165,7 @@ const NewArrival = () => {
                     </div>
 
                     <div className="row g-4 mt-4">
-                        {products.map((product: any) =>
- (
-
+                        {productData.map((product: any) => (
                             <NewArrive key={product.id} product={product} />
                         ))}
                     </div>
